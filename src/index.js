@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 
-app.use(cors({ origin: "https://node-course-2rz5.onrender.com" }))
+app.use(cors());
 
 const productRoute = require("./routes/product.js");
 const conectDB = require("./config/db.js");
