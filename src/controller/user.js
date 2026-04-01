@@ -1,7 +1,7 @@
 const User = require("../model/user");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { jwt_secrect, expire_in } = require("../config/env");
+const { jwt_secret, expire_in } = require("../config/env");
 const saltRound = 10;
 
 const register = async (req, res) => {
@@ -28,7 +28,7 @@ const register = async (req, res) => {
 
     const token = jwt.sign(
       { email: createdUser.email, id: createdUser._id, name: createdUser.name },
-      jwt_secrect,
+      jwt_secret,
       { expiresIn: expire_in },
     );
 
@@ -60,7 +60,7 @@ const login = async (req, res) => {
 
     const token = jwt.sign(
       { email: user.email, id: user._id, name: user.name },
-      jwt_secrect,
+      jwt_secret,
       { expiresIn: expire_in },
     );
     console.log(user, "userdeatils");
